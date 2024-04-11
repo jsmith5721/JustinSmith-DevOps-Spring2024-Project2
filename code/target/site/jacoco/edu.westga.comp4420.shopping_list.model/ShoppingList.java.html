@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>ShoppingList.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">shopping_list</a> &gt; <a href="index.source.html" class="el_package">edu.westga.comp4420.shopping_list.model</a> &gt; <span class="el_source">ShoppingList.java</span></div><h1>ShoppingList.java</h1><pre class="source lang-java linenums">package edu.westga.comp4420.shopping_list.model;
+
+import java.util.HashMap;
+import java.util.Map;
+
+
+/** A representation of a shopping list.
+ *
+ * @author Justin Smith
+ * @version Spring 2024
+ */
+public class ShoppingList {
+	private Map&lt;String, Item&gt; sList;
+	
+	private static final String ITEM_NAME_ALREADY_EXISTS = &quot;There is already an item in your list by that name. Please enter a name of a new item.&quot;;
+	private static final String EMPTY_NAME = &quot;The item name can't be blank. Please provide a valid item name.&quot;;
+	private static final String NAME_NOT_FOUND = &quot;We couldn't find an Item with that name, please privide a valid item name.&quot;;
+	
+	/** Constructor method to instantiate the map of items
+	 * 
+	 * @preconditions none
+	 * @postconditions none
+	 */
+<span class="fc" id="L24">	public ShoppingList() {</span>
+<span class="fc" id="L25">		this.sList = new HashMap&lt;String, Item&gt;();</span>
+<span class="fc" id="L26">	}</span>
+	
+	/** Returns a Item object with the name provided if it exists in the sList.
+	 * 
+	 * @param name   the name of the item to return.
+	 * 
+	 * @return An Item object with the name provided if it exists in the sList
+	 * 		   or null if the name was not found.
+	 */
+	public Item getItemByName(String name) {
+<span class="fc" id="L36">		return this.sList.get(name);</span>
+	}
+	
+	/** Adds a new Item to sList.
+	 *
+	 * @precondition name != null || &quot;&quot;
+	 *				 !sList.containsKey(name)
+	 *
+	 * @postcondition sList.size() = @pre sList.size() + 1
+	 *
+	 * @param name      the name of the new Item to add.
+	 */
+	public void addItem(String name) {
+		Item item;
+<span class="fc bfc" id="L50" title="All 2 branches covered.">		if (this.sList.containsKey(name)) {</span>
+<span class="fc" id="L51">			throw new IllegalArgumentException(ShoppingList.ITEM_NAME_ALREADY_EXISTS);</span>
+		}
+		try {
+<span class="fc" id="L54">			item = new Item(name);</span>
+<span class="fc" id="L55">		} catch (IllegalArgumentException e) {</span>
+<span class="fc" id="L56">			throw e;</span>
+<span class="fc" id="L57">		}</span>
+<span class="fc" id="L58">		this.sList.put(name, item);</span>
+<span class="fc" id="L59">	}</span>
+	
+	/** Removes the item with the name provided.
+	 * 
+	 * @preconditions name != null || &quot;&quot;  
+	 * 				  sList.containsKey(name)
+	 * 
+	 * @postcondition sList.size() = @pre sList.size() - 1
+	 * 
+	 * @param name   the name of the item to be removed.
+	 */
+	public void removeItem(String name) {
+<span class="fc bfc" id="L71" title="All 4 branches covered.">		if (name == null || name.isEmpty()) {</span>
+<span class="fc" id="L72">			throw new IllegalArgumentException(ShoppingList.EMPTY_NAME);</span>
+		}
+<span class="fc bfc" id="L74" title="All 2 branches covered.">		if (!this.sList.containsKey(name)) {</span>
+<span class="fc" id="L75">			throw new IllegalArgumentException(ShoppingList.NAME_NOT_FOUND);</span>
+		} else {
+<span class="fc" id="L77">			this.sList.remove(name);</span>
+		}
+<span class="fc" id="L79">	}</span>
+	
+	/** Updates the quantity for the Item with the name provided to the quantity provided.
+	 * 
+	 * @precondition sList.containsKey(name)
+	 * 				 newQuantity &gt;= 0
+	 * 
+	 * @postcondition sList.get(name).getQuantity() = newQuantity
+	 *
+	 * @param name               the name of the Item to update the quantity for.
+	 * @param newQuantity        the new quantity to set for the Item with the name provided.
+	 */
+	public void updateQuantity(String name, int newQuantity) {
+<span class="fc bfc" id="L92" title="All 2 branches covered.">		if (!this.sList.containsKey(name)) {</span>
+<span class="fc" id="L93">			throw new IllegalArgumentException(ShoppingList.NAME_NOT_FOUND);</span>
+		}
+		try {
+<span class="fc" id="L96">			this.sList.get(name).setQuantity(newQuantity);</span>
+<span class="fc" id="L97">		} catch (IllegalArgumentException e) {</span>
+<span class="fc" id="L98">			throw e;</span>
+<span class="fc" id="L99">		}</span>
+<span class="fc" id="L100">	}</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>
