@@ -9,6 +9,9 @@ public class Item {
 	private String name;
 	private int quantity;
 	
+	private static final String INVALID_NAME = "The name provided is invalid. The name must contain at least 1 character."
+	private static final String INVALID_QUANTITY = "The new quantity must be greater than or equal to 0"
+	
 	/**Creates a new Item.
 	 * 
 	 * @precondition name != null || ""
@@ -19,7 +22,7 @@ public class Item {
 		if (name != null && !name.isEmpty()) {
 			this.name = name;
 		} else {
-			throw new IllegalArgumentException("The name provided is invalid. The name must contain at least 1 character.");
+			throw new IllegalArgumentException(INVALID_NAME);
 		}
 		this.quantity = 0;
 	}
@@ -50,7 +53,7 @@ public class Item {
 		if (newQuanitiy >= 0) {
 			this.quantity = newQuanitiy;
 		} else {
-			throw new IllegalArgumentException("The new quantity must be greater than or equal to 0");
+			throw new IllegalArgumentException(INVALID_QUANTITY);
 		}
 	}
 }
