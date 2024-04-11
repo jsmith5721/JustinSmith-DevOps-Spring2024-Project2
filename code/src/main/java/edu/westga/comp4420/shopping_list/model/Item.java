@@ -22,7 +22,7 @@ public class Item {
 		if (name != null && !name.isEmpty()) {
 			this.name = name;
 		} else {
-			throw new IllegalArgumentException(INVALID_NAME);
+			throw new IllegalArgumentException(Item.INVALID_NAME);
 		}
 		this.quantity = 0;
 	}
@@ -53,7 +53,7 @@ public class Item {
 		if (newQuanitiy >= 0) {
 			this.quantity = newQuanitiy;
 		} else {
-			throw new IllegalArgumentException(INVALID_QUANTITY);
+			throw new IllegalArgumentException(Item.INVALID_QUANTITY);
 		}
 	}
 }
