@@ -80,8 +80,7 @@ public class ShoppingList {
 	
 	/** Updates the quantity for the Item with the name provided to the quantity provided.
 	 * 
-	 * @precondition name != null || ""
-	 * 				 sList.containsKey(name)
+	 * @precondition sList.containsKey(name)
 	 * 				 newQuantity >= 0
 	 * 
 	 * @postcondition sList.get(name).getQuantity() = newQuantity
@@ -90,9 +89,7 @@ public class ShoppingList {
 	 * @param newQuantity        the new quantity to set for the Item with the name provided.
 	 */
 	public void updateQuantity(String name, int newQuantity) {
-		if (name == null || name.isEmpty()) {
-			throw new IllegalArgumentException(ShoppingList.EMPTY_NAME);
-		} else if (!this.sList.containsKey(name)) {
+		if (!this.sList.containsKey(name)) {
 			throw new IllegalArgumentException(ShoppingList.NAME_NOT_FOUND);
 		}
 		try {

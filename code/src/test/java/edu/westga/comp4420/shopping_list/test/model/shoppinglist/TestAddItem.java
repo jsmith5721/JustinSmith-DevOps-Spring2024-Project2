@@ -7,9 +7,10 @@ import edu.westga.comp4420.shopping_list.model.ShoppingList;
 
 public class TestAddItem {
 	ShoppingList sList;
+	String itemName = "Test";
 	
 	@BeforeEach
-	static void setUp() {
+	static void setUpPerTest() {
 		sList = new ShoppingList();
 	}
 	
@@ -33,18 +34,18 @@ public class TestAddItem {
 	
 	@Test
 	public void testValidName() {
-		sList.addItem("Test");
+		sList.addItem(itemName);
 		
 		assertEquals(1, sList.size(), "Confirms that the size of sList increased.");
 	}
 	
 	@Test
 	public void testNameAlreadyExitst() {
-		sList.addItem("Test");
+		sList.addItem(itemName);
 		
 		assertThrows(IllegalArgumentException.class,
 			()->{
-				sList.addItem("Test");
+				sList.addItem(itemName);
 			}
 		);
 	}

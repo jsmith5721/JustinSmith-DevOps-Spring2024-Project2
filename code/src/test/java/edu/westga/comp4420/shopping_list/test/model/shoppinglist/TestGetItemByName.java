@@ -7,11 +7,12 @@ import edu.westga.comp4420.shopping_list.model.ShoppingList;
 
 public class TestGetItemByName {
 	ShoppingList sList;
+	String itemName = "Test";
 	
 	@BeforeAll
 	static void setUp() {
 		sList = new ShoppingList();
-		sList.addItem("Test Name");
+		sList.addItem(itemName);
 	}
 	
 	@Test
@@ -21,8 +22,8 @@ public class TestGetItemByName {
 	
 	@Test
 	public void testValidName() {
-		Item item = sList.getItemByName("Test Name");
+		Item item = sList.getItemByName(itemName);
 		
-		assertEquals("Test Name", item.getName();, "Checking that the item name of the item returned is the same as the name provided");
+		assertEquals(itemName, item.getName();, "Checking that the item name of the item returned is the same as the name provided");
 	}
 }

@@ -10,7 +10,7 @@ public class TestAddItem {
 	String itemName = "Test";
 	
 	@BeforeEach
-	static void setUp() {
+	static void setUpPerTest() {
 		sList = new ShoppingList();
 		sList.addItem(itemName);
 	}
