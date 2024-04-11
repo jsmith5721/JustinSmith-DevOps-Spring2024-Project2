@@ -3,8 +3,8 @@
 	<modelVersion>4.0.0</modelVersion>
 	
 	<!-- project info -->
-	<groupId>edu.westga</groupId>
-	<artifactId>Shopping List</artifactId>
+	<groupId>edu.westga.comp4420</groupId>
+	<artifactId>shopping_list</artifactId>
 	<version>1.0-SNAPSHOT</version>
 	
 	<properties>
