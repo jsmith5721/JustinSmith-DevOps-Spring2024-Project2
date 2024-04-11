@@ -9,27 +9,30 @@ public class Item {
 	private String name;
 	private int quantity;
 	
+	private static final String INVALID_NAME = &quot;The name provided is invalid. The name must contain at least 1 character.&quot;;
+	private static final String INVALID_QUANTITY = &quot;The new quantity must be greater than or equal to 0&quot;;
+	
 	/**Creates a new Item.
 	 * 
 	 * @precondition name != null || &quot;&quot;
 	 *
 	 * @param name     the name to initilize the Item with.
 	 */
-<span class="fc" id="L18">	public Item(String name) {</span>
-<span class="fc bfc" id="L19" title="All 4 branches covered.">		if (name != null &amp;&amp; !name.isEmpty()) {</span>
-<span class="fc" id="L20">			this.name = name;</span>
+<span class="fc" id="L21">	public Item(String name) {</span>
+<span class="fc bfc" id="L22" title="All 4 branches covered.">		if (name != null &amp;&amp; !name.isEmpty()) {</span>
+<span class="fc" id="L23">			this.name = name;</span>
 		} else {
-<span class="fc" id="L22">			throw new IllegalArgumentException(&quot;The name provided is invalid. The name must contain at least 1 character.&quot;);</span>
+<span class="fc" id="L25">			throw new IllegalArgumentException(Item.INVALID_NAME);</span>
 		}
-<span class="fc" id="L24">		this.quantity = 0;</span>
-<span class="fc" id="L25">	}</span>
+<span class="fc" id="L27">		this.quantity = 0;</span>
+<span class="fc" id="L28">	}</span>
 	
 	/** Returns the name of the Item.
 	 * 
 	 * @return the name of the Item.
 	 */
 	public String getName() {
-<span class="fc" id="L32">		return this.name;</span>
+<span class="fc" id="L35">		return this.name;</span>
 	}
 	
 	/** Returns the quantity of the Item.
@@ -37,7 +40,7 @@ public class Item {
 	 * @return the quantity of the Item.
 	 */
 	public int getQuantity() {
-<span class="fc" id="L40">		return this.quantity;</span>
+<span class="fc" id="L43">		return this.quantity;</span>
 	}
 	
 	/** Sets the quantity to the newQuanitiy provided.
@@ -47,11 +50,11 @@ public class Item {
 	 * @param newQuanitiy       the new quantity value to set for this Item.
 	 */
 	public void setQuantity(int newQuanitiy) {
-<span class="fc bfc" id="L50" title="All 2 branches covered.">		if (newQuanitiy &gt;= 0) {</span>
-<span class="fc" id="L51">			this.quantity = newQuanitiy;</span>
+<span class="fc bfc" id="L53" title="All 2 branches covered.">		if (newQuanitiy &gt;= 0) {</span>
+<span class="fc" id="L54">			this.quantity = newQuanitiy;</span>
 		} else {
-<span class="fc" id="L53">			throw new IllegalArgumentException(&quot;The new quantity must be greater than or equal to 0&quot;);</span>
+<span class="fc" id="L56">			throw new IllegalArgumentException(Item.INVALID_QUANTITY);</span>
 		}
-<span class="fc" id="L55">	}</span>
+<span class="fc" id="L58">	}</span>
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>
