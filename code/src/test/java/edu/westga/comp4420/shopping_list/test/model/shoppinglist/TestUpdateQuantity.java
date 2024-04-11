@@ -1,6 +1,7 @@
 package edu.westga.comp4420.shopping_list.test.model.shoppinglist;
 
 import static org.junit.jupiter.api.Assertions.*;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import edu.westga.comp4420.shopping_list.model.ShoppingList;
@@ -13,7 +14,7 @@ public class TestUpdateQuantity {
 	int invalidQuantity = -1;
 	
 	@BeforeEach
-	static void setUpPerTest() {
+	public void setUpPerTest() {
 		sList = new ShoppingList();
 		sList.addItem(validName);
 	}
@@ -40,6 +41,6 @@ public class TestUpdateQuantity {
 	public void testValidUpdate() {
 		sList.updateQuantity(validName, validQuantity);
 		
-		assertEquals(validQuantity, sList.get(validName).getQuantity(), "Confirms the item with the name validName was updated to the quantity given".);
+		assertEquals(validQuantity, sList.getItemByName(validName).getQuantity(), "Confirms the item with the name validName was updated to the quantity given.");
 	}
 }

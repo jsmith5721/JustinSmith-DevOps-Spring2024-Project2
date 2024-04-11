@@ -2,7 +2,7 @@ package edu.westga.comp4420.shopping_list.model;
 
 import java.util.HashMap;
 import java.util.Map;
-import edu.westga.comp4420.shopping_list.model.Item;
+
 
 /** A representation of a shopping list.
  *
@@ -14,7 +14,7 @@ public class ShoppingList {
 	
 	private static final String ITEM_NAME_ALREADY_EXISTS = "There is already an item in your list by that name. Please enter a name of a new item.";
 	private static final String EMPTY_NAME = "The item name can't be blank. Please provide a valid item name.";
-	private static final String NAME_NOT_FOUND = "We couldn't find an Item with the name " + name + " please select a valid item.";
+	private static final String NAME_NOT_FOUND = "We couldn't find an Item with that name, please privide a valid item name.";
 	
 	/** Constructor method to instantiate the map of items
 	 * 

@@ -1,16 +1,17 @@
 package edu.westga.comp4420.shopping_list.test.model.shoppinglist;
 
 import static org.junit.jupiter.api.Assertions.*;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import edu.westga.comp4420.shopping_list.model.ShoppingList;
 
-public class TestAddItem {
+public class TestRemoveItem {
 	ShoppingList sList;
 	String itemName = "Test";
 	
 	@BeforeEach
-	static void setUpPerTest() {
+	public void setUpPerTest() {
 		sList = new ShoppingList();
 		sList.addItem(itemName);
 	}
@@ -46,6 +47,6 @@ public class TestAddItem {
 	public void testValidName() {
 		sList.removeItem(itemName);
 		
-		assertEquals(null, sList.getItemByName(itemName), "Confirms that the item no longer can be found in sList.")
+		assertEquals(null, sList.getItemByName(itemName), "Confirms that the item no longer can be found in sList.");
 	}
 }

@@ -1,6 +1,7 @@
 package edu.westga.comp4420.shopping_list.test.model.shoppinglist;
 
 import static org.junit.jupiter.api.Assertions.*;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import edu.westga.comp4420.shopping_list.model.ShoppingList;
@@ -10,7 +11,7 @@ public class TestAddItem {
 	String itemName = "Test";
 	
 	@BeforeEach
-	static void setUpPerTest() {
+	public void setUpPerTest() {
 		sList = new ShoppingList();
 	}
 	
@@ -36,7 +37,7 @@ public class TestAddItem {
 	public void testValidName() {
 		sList.addItem(itemName);
 		
-		assertEquals(1, sList.size(), "Confirms that the size of sList increased.");
+		assertNotNull(sList.getItemByName(itemName), "Confirms that there is an Item by the correct name in sList.");
 	}
 	
 	@Test

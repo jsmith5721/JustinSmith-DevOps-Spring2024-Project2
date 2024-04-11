@@ -1,13 +1,15 @@
 package edu.westga.comp4420.shopping_list.test.model.shoppinglist;
 
 import static org.junit.jupiter.api.Assertions.*;
+import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
 import edu.westga.comp4420.shopping_list.model.ShoppingList;
+import edu.westga.comp4420.shopping_list.model.Item;
 
 public class TestGetItemByName {
-	ShoppingList sList;
-	String itemName = "Test";
+	static ShoppingList sList;
+	static String itemName = "Test";
 	
 	@BeforeAll
 	static void setUp() {
@@ -24,6 +26,6 @@ public class TestGetItemByName {
 	public void testValidName() {
 		Item item = sList.getItemByName(itemName);
 		
-		assertEquals(itemName, item.getName();, "Checking that the item name of the item returned is the same as the name provided");
+		assertEquals(itemName, item.getName(), "Checking that the item name of the item returned is the same as the name provided");
 	}
 }

@@ -1,4 +1,8 @@
-edu\westga\comp4420\shopping_list\test\model\item\TestGetName.class
 edu\westga\comp4420\shopping_list\test\model\item\TestSetQuantity.class
 edu\westga\comp4420\shopping_list\test\model\item\TestConstructor.class
+edu\westga\comp4420\shopping_list\test\model\shoppinglist\TestAddItem.class
+edu\westga\comp4420\shopping_list\test\model\shoppinglist\TestRemoveItem.class
+edu\westga\comp4420\shopping_list\test\model\shoppinglist\TestUpdateQuantity.class
+edu\westga\comp4420\shopping_list\test\model\shoppinglist\TestGetItemByName.class
+edu\westga\comp4420\shopping_list\test\model\item\TestGetName.class
 edu\westga\comp4420\shopping_list\test\model\item\TestGetQuantity.class
