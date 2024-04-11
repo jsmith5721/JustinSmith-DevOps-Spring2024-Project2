@@ -71,10 +71,10 @@ public class ShoppingList {
 		if (name == null || name.isEmpty()) {
 			throw new IllegalArgumentException(ShoppingList.EMPTY_NAME);
 		}
-		if (this.sList.containsKey(name)) {
-			this.sList.remove(name);
-		} else {
+		if (!this.sList.containsKey(name)) {
 			throw new IllegalArgumentException(ShoppingList.NAME_NOT_FOUND);
+		} else {
+			this.sList.remove(name);
 		}
 	}
 	
